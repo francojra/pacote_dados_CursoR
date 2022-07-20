@@ -27,7 +27,13 @@ View(av1)
 
 av2 <- av1 %>%
   group_by(fabricante) %>%
-  summarise(media = mean(assentos))
+  summarise(media = mean(assentos),
+            sd = sd(assentos),
+            n = n(),
+            se = sd/sqrt(n))
+av2
 
 ggplot(av2, aes(x = fabricante, y = media)) +
-  geom_col()
+  geom_col() +
+  geom_errorbar(aes(x = fabricante, y = media, ymin = media - sd,
+                    ymax = media + sd), width = 0.25, size = 0.8)
