@@ -34,6 +34,8 @@ av2 <- av1 %>%
 av2
 
 ggplot(av2, aes(x = fabricante, y = media)) +
-  geom_col() +
+  geom_col(fill = "#a6611a") +
   geom_errorbar(aes(x = fabricante, y = media, ymin = media - sd,
-                    ymax = media + sd), width = 0.25, size = 0.8)
+                    ymax = media + sd), width = 0.25, size = 0.8) +
+  labs(x = "Fabricantes", y = "Número médio de assentos") +
+  theme(axis.text = element_text(size = 8.5, color = "black"))
