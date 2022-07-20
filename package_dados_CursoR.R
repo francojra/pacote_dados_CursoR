@@ -65,9 +65,9 @@ av4 <- av1 %>%
   drop_na()
 av4
 
-ggplot(av4, aes(x = ano, y = media, group = ano)) +
-  geom_point(color = "#a6611a", size = 5) +
-  #geom_line(aes(x = ano, y = media, group = ano)) +
+ggplot(av4, aes(x = ano, y = media)) +
+  geom_point(color = "#a6611a", size = 5.2) +
+  geom_line(aes(x = ano, y = media), size = 0.8, color = "#a6611a") +
   geom_errorbar(aes(x = ano, y = media, ymin = media - se,
                     ymax = media + se), width = 0.25, size = 0.8) +
   labs(x = "Ano", y = "Número médio de assentos") +
